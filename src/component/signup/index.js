@@ -96,7 +96,7 @@ class Signup extends Component {
 
         const { username, email, password } = this.state;
         const userDetails = { username, email, password };
-        const url = "http://localhost:3000/register";
+        const url = "https://glamourgroove.onrender.com/register";
 
         const options = {
             method: 'POST',

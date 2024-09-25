@@ -50,7 +50,7 @@ class LoginPage extends Component {
         }
 
         const userDetails = { email, password };
-        const url = "http://localhost:3000/login";
+        const url = "https://glamourgroove.onrender.com/login";
         const options = {
             method: 'POST',
             body: JSON.stringify(userDetails),
