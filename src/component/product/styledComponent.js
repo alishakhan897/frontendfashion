@@ -8,7 +8,7 @@ export const ProductMainDiv = styled.div`
 
    @media screen and (min-width:768px) {
       flex-direction:row;
-      margin-top:150px;
+      margin-top:0px;
     
    }
 `

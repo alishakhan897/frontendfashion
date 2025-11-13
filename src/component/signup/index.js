@@ -139,7 +139,7 @@ class Signup extends Component {
             console.error("Error:", error);
             this.setState({
                 showerrormssg: true,
-                msg: 'An unexpected error occurred. Please try again later.',
+                msg: `${error.message}`,
             });
         }
         this.setState({ loading_submit: false }); // Reset loading state

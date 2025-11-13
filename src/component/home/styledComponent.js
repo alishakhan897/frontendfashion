@@ -1,24 +1,40 @@
 import styled from "styled-components";
 
-
-export const HomePageMainContainer = styled.div`
-    background-image:url("https://res.cloudinary.com/alishakhan987/image/upload/v1710014372/Fashion1_jodthv.png");
-    height:100vh;
+export const HomePageCon = styled.div`
     background-size:cover;
-    padding-top:45px;
-    padding-left:65px;
-    object-fit:contain;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-   
-
-    @media screen and (min-width:768px) {
-        background-image:url("https://res.cloudinary.com/alishakhan987/image/upload/v1710243524/enhanced-image_27_btzoez.png");
-        margin-top:83px;
-      }
+    min-height:100vh;
+    max-height:auto;
     
+
 `
+export const HomePageMainContainer = styled.div`
+    height: 100vh; // Full height of the viewport
+    overflow: hidden; // Prevent overflow issues
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center the content vertically
+    align-items: center; // Center the content horizontally
+    width: 100%; // Ensure full width
+    background-color: pink;
+
+    @media screen and (min-width: 768px) {
+        margin-top:20px;// Adjust styles for larger screens if needed
+    }
+`;
+
+export const CarouselImage = styled.img`
+   
+    height: 100%;
+    width: 100%;
+    position: absolute; // Positioning for the carousel effect
+    transition: opacity 0.5s ease; // Smooth transition for fading
+    opacity: ${(props) => (props.show ? 1 : 0)};
+    object-fit:cover;
+    background-attachment:fixed;
+    background-position:center;
+`;
+ 
 export const HeadingElem = styled.h1`
    color:white;
    font-size:35px;
@@ -226,7 +242,7 @@ export const TopContainer = styled.div`
    background:transparent;
    backdrop-filter: blur(8px);
     @media screen and (min-width:768px) {
-        width:40%;
+        width:100%;
         align-items:flex-start;
    
     }
@@ -243,6 +259,7 @@ export const MakeCenter = styled.div`
    transform: translateY(80px);
    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
    z-index: 1;
+   overflow:hidden;
    ${SecondCollection2}:hover & {
      transform: translateY(0);
      opacity: 1;
@@ -254,169 +271,168 @@ export const MakeCenter = styled.div`
 `
 
 export const WhyChooseusmain = styled.div`
-   min-height:100vh;
-   display:flex;
-   flex-direction:column;
-   justify-content:center;
-   align-items:center;
-  
-   
-`
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+`;
 
 export const WhyChooseSmallContainer = styled.div`
-     display:flex;
-     flex-direction:column;
-     width:100%;
-     margin-top:45px;
-     justify-content:space-around;
-    @media screen and (min-width:768px) {
-        flex-direction:row;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 45px;
+    gap: 2rem;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 3rem;
     }
-    
-`
+`;
+
 export const Div1 = styled.div`
-    width:100%;
-    display:flex;
-    flex-direction:row;
-    align-items:center; 
-    gap:4.3rem;
-   
-    @media screen and (min-width:768px) {
-        width: 50%;
-        flex-direction:column;
-        justify-content:space-between;
-    
-   }
-  
-`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+
+    @media screen and (min-width: 768px) {
+        width: 48%;
+        justify-content: space-between;
+    }
+`;
 
 export const Div1Shopping = styled.div`
     display: flex;
     flex-direction: column;
-    width: 45%;
-    height: 240px;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: #fff;
     border-radius: 12px;
     border: 2px solid #8e4656;
-    overflow: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 400px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    
+
     &:hover {
-        transform: scale(1.1); /* Increase the scale on hover */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
-      }
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
     @media screen and (min-width: 768px) {
-        width: 60%;
-        height: 85%;
+        width: 100%;
+        max-width: none;
     }
 `;
+
 export const Iconbackground = styled.div`
-    border-radius:100%;
-    padding:1vh;
-    margin-top:2vh;
-    background-color:#f0d8d6;
-    opacity:0.5px;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #f0d8d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
-    @media screen and (min-width:768px) {
-        padding:2vh;
-    }
-`
-export const IconPara1 = styled.p`
-   
-    color:#b89132;
-    font-weight:bold;
-    font-family:'Roboto';
-    font-size:0.8rem;
-    padding-top:1vh;
-    text-align:start;
-
-    @media screen and (min-width:768px) {
-        padding-top:12px;
-        font-size:4vh;
-        width:90%;
-        
-    }
-
-`
 export const TitleDiv = styled.div`
-    width:80%;
-    margin:auto;
+    text-align: center;
+    margin-top: 15px;
 
-    @media screen and (min-width:768px) {
-        width:90%;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
+    @media screen and (min-width: 768px) {
+        text-align: left;
     }
-`
+`;
+
+export const IconPara1 = styled.p`
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #8e4656;
+    margin: 10px 0;
+
+    @media screen and (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+`;
+
 export const IconPara2 = styled.p`
-    
-    color:#93a4a7;
-    font-weight:bold;
-    font-family:'Roboto';
-    font-size:0.7rem;
-    text-align:start;
-   
+    font-size: 1rem;
+    color: #93a4a7;
+    line-height: 1.5;
 
-    @media screen and (min-width:768px) {
-        padding-top:12px;
-        font-size:3vh;
-        width:90%;
+    @media screen and (min-width: 768px) {
+        font-size: 1.2rem;
     }
+`;
 
-`
 export const Div2 = styled.div`
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    @media screen and (min-width:768px) {
-        width: 20%;
-        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        margin: 2rem 0;
     }
-   
-`
+`;
 
 export const LogoDiv = styled.div`
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    width: 100px;
+    height: 100px;
 
-    @media screen and (min-width:768px) {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    
-    &:hover {
-        transform: scale(1.1); /* Increase the scale on hover */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
-      }
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
     }
-    
 
-`
+    @media screen and (min-width: 768px) {
+        width: 150px;
+        height: 150px;
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+`;
+
 export const WhyChooseHeading = styled.h1`
-    color:#8e4656;
-    font-size:50px;
-    font-family:'Roboto';
-    font-weight:bold;
-    text-align:center;
-`
+    color: #8e4656;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 3.5rem;
+    }
+`;
+
 
 
 export const LandingPageMain = styled.div`
-   margin-top:15px;
-   height:580px;
-   width:100vw;
-   @media screen and (min-width:768px) {
-     height:600px;
-     width:100%;
-     margin-top:45px;
+  
+  height: 580px;
+  width: 100vw;
 
-   
-`
+  @media screen and (min-width: 768px) {
+    height: 600px;
+    width: 100%;
+    
+  }
+`;
+
 
 export const LandingPageDiv = styled.div`
     background-image:url("https://res.cloudinary.com/alishakhan987/image/upload/v1710339941/Conatct2_ugkn26.png");

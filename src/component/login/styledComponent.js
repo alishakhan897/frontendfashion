@@ -156,3 +156,39 @@ export const ErrorMsg = styled.p`
 export const StyLink = styled(Link)`
     color:grey;
 `
+
+
+export const WelcomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 100vh;
+  background-color: rgb(213,126,154);
+`;
+
+export const HiddenMessage = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 42px;
+  font-weight: bold;
+  opacity: 1;
+  
+  
+  color:white;
+  
+  animation: ${(props) => (props.fadeOut ? 'fadeOut 1s forwards' : 'fadeIn 1s ease-in-out')};
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+`;

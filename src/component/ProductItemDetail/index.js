@@ -12,7 +12,13 @@ import { BsPlusSquare, BsDashSquare } from 'react-icons/bs'
 import {
     StyledMainDiv, ImageDetailed, Imageheight, DetailedMainDiv,
     DetailedContainer, Rspara, ButtonDiv, ButtonDetailed, Des, AvailablePara, BsDesign, Button2, SimiliarProductDiv, ImageDetailed2, Imageheight2,
-    ItemProductDiv 
+    ItemProductDiv , ReviewProduct, FormContainerReview,
+    ReviewDetails,
+    ReviewHeading,
+    ReviewParagraph,
+    ReviewTextArea,
+    ReviewRatingRate,
+    Starrate
 } from './styledComponent';
 
 const apiStatusConstants = {
@@ -29,11 +35,8 @@ class ProductDeatils extends Component {
         this.getDetailedProduct()
     }
 
-    getDetailedProduct = async () => {
-        const { similiarProducts } = this.state
-        const { match } = this.props
-        const { params } = match
-        const { id } = params
+    getDetailedProduct = async (productId) => {
+        const id = productId || this.props.match.params.id;
 
         this.setState({
             apiStatus: apiStatusConstants.inProgress,
@@ -74,10 +77,15 @@ class ProductDeatils extends Component {
             this.setState({ apiStatus: apiStatusConstants.failure })
         }
 
+    } 
+
+    sendReview = async() => {
+
     }
 
     ImageClicked = id => {
-        this.getDetailedProduct(id)
+        this.getDetailedProduct(id) 
+        console.log(id)
     }
 
 
@@ -174,7 +182,24 @@ class ProductDeatils extends Component {
                       
                         ))}
                           </ItemProductDiv>
-                    </SimiliarProductDiv>
+                    </SimiliarProductDiv> 
+                    <ReviewProduct>
+                        <ReviewDetails>
+                            <ReviewHeading>Review This Product</ReviewHeading> 
+                            <ReviewParagraph>Share Your thought with other coustomers</ReviewParagraph>
+                        <FormContainerReview>
+                            <label>Description</label>
+                            <ReviewTextArea cols={6} rows={6}/> 
+
+                            <ReviewRatingRate>Rating</ReviewRatingRate> 
+                            <Starrate >
+
+                                
+                            </Starrate>
+                        </FormContainerReview>
+                        </ReviewDetails>
+                        
+                    </ReviewProduct>
                     </>
                 );
             }}

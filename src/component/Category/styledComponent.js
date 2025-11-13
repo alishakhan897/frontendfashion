@@ -14,7 +14,7 @@ export const CategoryMain = styled.li`
     
 `
 export const ParaList = styled.p`
-    font-family:'Roboto';
+    font-family:'Nunito Sans Condensed';
     font-size:15px;
 
     @media screen and (min-width:768px) {

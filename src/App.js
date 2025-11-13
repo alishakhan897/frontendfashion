@@ -12,7 +12,8 @@ import Product from './component/product';
 import AddForm from './component/AddProduct';
 import ProductDetailUser from './component/ProductDetailsUser'
 import ProductDeatils from './component/ProductItemDetail'
-import EditProfile from './component/EditProfile';
+import EditProfile from './component/EditProfile'; 
+import UnderMaintenance from './component/Admin';
 import './App.css';
 
 class App extends Component {
@@ -111,7 +112,8 @@ class App extends Component {
           <ProtectedRoute exact path="/products" component={ProductDetailUser} />
           <ProtectedRoute exact path="/products/:id" component={ProductDeatils} />
           <ProtectedRoute exact path="/cart" component={Cart} />
-          <ProtectedRoute exact path="/edit-profile" component={EditProfile} />
+          <ProtectedRoute exact path="/edit-profile" component={EditProfile} /> 
+          <ProtectedRoute exact path="/admin" component={UnderMaintenance} />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>

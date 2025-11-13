@@ -9,19 +9,17 @@ export const NavItem = styled.nav`
     margin:auto;
     max-width: 1110px;
     padding-top: 15px;
-  
+    position: sticky;
 
     @media screen and (min-width: 600px) {
         width: 95%;
         padding: 12px;
         max-width:none;
         border-radius:30%;
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%); /* Center the nav horizontally */
+        position: sticky;
+        margin:auto;
         background-color: #ffffff;
-        z-index: 0;
+        z-index: 10;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 `;
@@ -201,7 +199,8 @@ border-radius: 8px;
 padding: 12px;
 display: flex;
 flex-direction: column;
-transition: transform 250ms;
+transition: transform 250ms; 
+
 
 @media screen and (min-width:768px) {
     width:20%;
@@ -240,5 +239,5 @@ export const UserProfileDivLink = styled(Link)`
     align-items:center;
     margin-bottom:20px;
     margin-top:12px;
-   text-decoration:none;
+    text-decoration:none;
 `

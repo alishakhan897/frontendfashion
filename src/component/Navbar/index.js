@@ -34,16 +34,10 @@ class Navbar extends Component {
             }
         };
     }
-
-    
     
        
        
         
-    
-
-   
-
     logout = () => {
         Cookies.remove('jwt_token');
         this.props.history.replace('/login');
@@ -115,12 +109,12 @@ class Navbar extends Component {
                                 <UserHeading>Edit Profile</UserHeading>
                                 <IoIosArrowForward color={'white'} />
                             </UserProfileDivLink>
-                            <UserProfileDivLink>
+                            <UserProfileDivLink to="/admin">
                                 <AiTwotoneShop color={'white'} size={25} />
                                 <UserHeading>Upgrade Your Business</UserHeading>
                                 <IoIosArrowForward color={'white'} />
                             </UserProfileDivLink>
-                            <UserProfileDivLink>
+                            <UserProfileDivLink to="/admin">
                                 <RiAdminFill color={'white'} size={25} />
                                 <UserHeading>Admin Panel</UserHeading>
                                 <IoIosArrowForward color={'white'} />

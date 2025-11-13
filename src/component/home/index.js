@@ -18,7 +18,8 @@ import {
     HomePageMainContainer, Collection, HeadingElem, ParaElem, CollectionHeading, CollectionSmallCard, CardContainer, CardImage, CardContent,
     SecondCollection, SecondCollection2, TopContainer, MakeCenter, WhyChooseusmain,
     WhyChooseSmallContainer, Div1, Div1Shopping, Iconbackground, IconPara1, IconPara2, LabelForm, InputForm,CopyrightContainer,
-    Div2, WhyChooseHeading, LandingPageMain, LogoImage, LandingPageDiv, ContactUsDiv, ContactFrom, ContactHaeding, DescriptionDiv, PutLableForm, ContactSubmitButton, LogoDiv, TitleDiv, ErrText, FooterSection, FooterSmallDiv, ButtonFooter, Span, Bg, LastPage, SecondLastPage
+    Div2, WhyChooseHeading, LandingPageMain, LogoImage, LandingPageDiv, ContactUsDiv, ContactFrom, ContactHaeding, DescriptionDiv, PutLableForm, ContactSubmitButton, LogoDiv, TitleDiv, ErrText, FooterSection, 
+    FooterSmallDiv, ButtonFooter, Span, Bg, LastPage, SecondLastPage , HomePageCon , CarouselImage
 } from './styledComponent';
 
 
@@ -29,13 +30,23 @@ const apiStatusConstants = {
     inProgress: 'IN_PROGRESS',
 }
 
+const ArrayImage = [
+    "https://res.cloudinary.com/alishakhan987/image/upload/v1728936955/Leonardo_Phoenix_Step_into_the_world_of_elegance_with_our_stun_1-enhanced_vak7jk.png",
+    "https://res.cloudinary.com/alishakhan987/image/upload/v1728963599/Leonardo_Phoenix_The_image_features_a_group_of_women_walking_t_2-enhanced_nvzafo.png",
+    "https://res.cloudinary.com/alishakhan987/image/upload/v1728960478/Leonardo_Phoenix_Step_into_the_world_of_elegance_with_our_stun_0-enhanced_igmbws.png"
+]
 
 class Home extends Component {
 
-    state = { product: [], apistatus: apiStatusConstants.initial, name: '', email: '', message: '', showErr: false, err: '' }
+    state = { product: [], apistatus: apiStatusConstants.initial, name: '', email: '', message: '', showErr: false, err: '' , scrollImage:0}
 
     componentDidMount() {
-        this.getProductRoute()
+        this.getProductRoute() 
+        this.intervalID = setInterval(() => {
+            this.setState((prevState) => ({
+                scrollImage: (prevState.scrollImage + 1) % ArrayImage.length // Cycle through images
+            }));
+        }, 3000); 
     }
 
     getProductRoute = async () => {
@@ -181,7 +192,7 @@ class Home extends Component {
     }
 
     render() {
-        const { name, email, message, showErr, err } = this.state
+        const { name, email, message, showErr, err , scrollImage} = this.state
         const jwtToken = Cookies.get('jwt_token')
         if (jwtToken === undefined) {
             return <Redirect to="/login" />
@@ -189,12 +200,19 @@ class Home extends Component {
         return (
             <>
                 <Navbar />
+                <HomePageCon>
                 <HomePageMainContainer>
-                    <TopContainer>
-                        <HeadingElem>TREND ALERT!!</HeadingElem>
-                        <ParaElem>Discover the latest trends that resonate with your personality. Whether it's bold prints, classic monochromes, or a fusion of both, find your signature look that speaks volumes
-                            without saying a word </ParaElem>
-                    </TopContainer>
+                   
+                {ArrayImage.map((image, index) => (
+                    <CarouselImage
+                        key={index}
+                        src={image}
+                        alt="Scrolling Images"
+                        show={this.state.scrollImage === index} // Show current image based on index
+                    />
+                ))}
+                       
+                   
                 </HomePageMainContainer>
                 <Collection>
                 <CollectionHeading>Our Collections</CollectionHeading>
@@ -220,61 +238,56 @@ class Home extends Component {
 
 
                 <WhyChooseusmain>
-                    <WhyChooseHeading>Why Choose Us?</WhyChooseHeading>
-                    <WhyChooseSmallContainer>
-                        <Div1>
-                            <Div1Shopping>
-                                <Iconbackground>
-                                    <FaShoppingBag size={30} color={'#bf7a7f'} />
-                                </Iconbackground>
-                                <TitleDiv>
-                                    <IconPara1>Personalized Shopping Experience</IconPara1>
-                                    <IconPara2>We understand that every fashion journey is unique. Our user-friendly interface and personalized
-                                        recommendations make your shopping experience seamless, enjoyable, and tailored to your preferences</IconPara2>
-                                </TitleDiv>
-                            </Div1Shopping>
-                            <Div1Shopping>
-                                <Iconbackground>
-                                    <MdCollections size={30} color={'#bf7a7f'} />
-                                </Iconbackground>
-                                <TitleDiv>
-                                    <IconPara1 >Discover exclusive pieces available </IconPara1>
-                                    <IconPara2 > Our limited-edition collections are carefully curated to bring you distinctive and one-of-a-kind
-                                        fashion that sets you apart from the crowd fashion that sets you apart from the crowd.</IconPara2>
-                                </TitleDiv>
-                            </Div1Shopping>
+    <WhyChooseHeading>Why Choose Us?</WhyChooseHeading>
+    <WhyChooseSmallContainer>
+        <Div1>
+            <Div1Shopping>
+                <Iconbackground>
+                    <FaShoppingBag size={30} color={'#bf7a7f'} />
+                </Iconbackground>
+                <TitleDiv>
+                    <IconPara1>Personalized Shopping Experience</IconPara1>
+                    <IconPara2>We understand that every fashion journey is unique. Our user-friendly interface and personalized recommendations make your shopping experience seamless, enjoyable, and tailored to your preferences.</IconPara2>
+                </TitleDiv>
+            </Div1Shopping>
+            <Div1Shopping>
+                <Iconbackground>
+                    <MdCollections size={30} color={'#bf7a7f'} />
+                </Iconbackground>
+                <TitleDiv>
+                    <IconPara1>Exclusive Collections</IconPara1>
+                    <IconPara2>Our limited-edition collections are curated to bring you distinctive and one-of-a-kind fashion pieces that set you apart from the crowd.</IconPara2>
+                </TitleDiv>
+            </Div1Shopping>
+        </Div1>
+        <Div2>
+            <LogoDiv>
+                <LogoImage src="https://res.cloudinary.com/alishakhan987/image/upload/v1710012345/enhanced-image__18_-removebg-preview_uqvkms.png" alt="logo" />
+            </LogoDiv>
+        </Div2>
+        <Div1>
+            <Div1Shopping>
+                <Iconbackground>
+                    <TiTick size={30} color={'#bf7a7f'} />
+                </Iconbackground>
+                <TitleDiv>
+                    <IconPara1>Unrivaled Quality</IconPara1>
+                    <IconPara2>Our commitment to excellence is woven into every fabric. Impeccable craftsmanship and attention to detail ensure that each piece from Glamour Groove is of enduring quality.</IconPara2>
+                </TitleDiv>
+            </Div1Shopping>
+            <Div1Shopping>
+                <Iconbackground>
+                    <FaArrowTrendUp size={30} color={'#bf7a7f'} />
+                </Iconbackground>
+                <TitleDiv>
+                    <IconPara1>Trendsetting Designs</IconPara1>
+                    <IconPara2>Stay ahead with fashion-forward designs. Our collections cater to diverse tastes and help you find something that resonates with your style.</IconPara2>
+                </TitleDiv>
+            </Div1Shopping>
+        </Div1>
+    </WhyChooseSmallContainer>
+</WhyChooseusmain>
 
-                        </Div1>
-                        <Div2>
-                            <LogoDiv>
-                                <LogoImage src="https://res.cloudinary.com/alishakhan987/image/upload/v1710012345/enhanced-image__18_-removebg-preview_uqvkms.png" alt="logo" />
-                            </LogoDiv>
-                        </Div2>
-                        <Div1>
-                            <Div1Shopping>
-                                <Iconbackground>
-                                    <TiTick size={30} color={'#bf7a7f'} />
-                                </Iconbackground>
-                                <TitleDiv>
-                                    <IconPara1>Unrivaled Quality</IconPara1>
-                                    <IconPara2>Our commitment to excellence is woven into every fabric we offer. Impeccable craftsmanship and attention to detail ensure
-                                        that each piece you choose from Glamour Groove is a testament to enduring quality</IconPara2>
-                                </TitleDiv>
-                            </Div1Shopping>
-                            <Div1Shopping>
-                                <Iconbackground>
-                                    <FaArrowTrendUp size={30} color={'#bf7a7f'} />
-                                </Iconbackground>
-                                <TitleDiv>
-                                    <IconPara1>Trendsetting Designs </IconPara1>
-                                    <IconPara2>  Stay ahead of the curve with our fashion-forward designs.
-                                        From timeless classics to the latest trends, our curated collections cater to diverse tastes,
-                                        ensuring you'll find something that resonates with your unique style.</IconPara2>
-                                </TitleDiv>
-                            </Div1Shopping>
-                        </Div1>
-                    </WhyChooseSmallContainer>
-                </WhyChooseusmain>
                 <LandingPageMain>
                     <LandingPageDiv>
                         <ContactUsDiv>
@@ -344,10 +357,12 @@ class Home extends Component {
                       CopyRight | <FaRegCopyright />2024 Designed by Alisha Khan </CopyrightContainer>  
                     </SecondLastPage>
                 </LastPage>
+                </HomePageCon>
             </>
         )
     }
 
 }
 
-export default Home 
+export default Home  
+

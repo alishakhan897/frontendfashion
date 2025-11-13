@@ -146,7 +146,7 @@ export const ImageDetailed2 = styled.div`
     margin-top:30px;
    
     @media screen and (min-width:768px) {
-        width:30%;
+        width:10%;
         margin:none;
         
     }
@@ -168,4 +168,65 @@ export const HeadingDiv = styled.div`
     width:100%;
 
 
+`
+
+export const ReviewProduct = styled.div`
+    
+    min-height:30vh;
+    padding:25px;
+    max-height:auto;
+    width:95%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    
+
+` 
+
+export const ReviewDetails = styled.div`
+    width:40%;
+    border-radius:8%  ;
+    border:2px solid rgb(15, 17, 17);;
+    padding:20px;
+
+    ` 
+
+export const FormContainerReview = styled.form`
+    width:80%;
+    margin-top:8px;
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+
+
+
+
+`
+export const ReviewHeading = styled.h1`
+    font-family:"Amazon Ember", Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 24px;
+    font-color: rgb(15, 17, 17);
+`
+export const ReviewParagraph = styled.p`
+    font-family:"Amazon Ember", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    font-color: rgb(15, 17, 17;
+`
+export const ReviewTextArea = styled.textarea`
+    margin-bottom:30px; 
+
+`
+export const ReviewRatingRate = styled.label`
+    padding-top:20px;
+    color:red;
+`
+
+export const Starrate = styled.div`
+    width:80%;
+    display:flex;
+    flex-direction:row;
 `
